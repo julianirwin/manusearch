@@ -27,8 +27,8 @@ def table_path(default_paths):
                     ui.button(on_click=add_paths).props("flat fab-mini icon=add")
 
 
-    # ui.label().bind_text_from(table_path, 'selected', lambda val: f'Current selection: {val}')
-    ui.button('Remove', on_click=lambda: table_path.remove_rows(*table_path.selected)) \
-        .bind_visibility_from(table_path, 'selected', backward=lambda val: bool(val))
+    # Bug in nicegui? Removed rows still appear in table_path.selected
+    # ui.button('Remove', on_click=lambda: table_path.remove_rows(*table_path.selected)) 
+        # .bind_visibility_from(table_path, 'selected', backward=lambda val: bool(val))
     
     return table_path

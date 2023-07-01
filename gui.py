@@ -1,15 +1,19 @@
 from nicegui import ui
 from time import time
 from pathlib import Path
+import logging
 
 from tk import no_tk_popup_window
 from table_keyword import table_keyword
 from table_path import table_path
 from manusearch import manusearch_html
 
+logging.basicConfig(level=logging.INFO)
+
 def manusearch_callback(results_html: ui.html, table_keyword, table_path):
     def cb():
         results_html.set_content("")
+        results_html.update()
         befores, keywords, afters = selected_keywords_from(table_keyword)
         pdf_paths = selected_paths_from(table_path)
         html = manusearch_html(pdf_paths, keywords, befores, afters)
@@ -26,7 +30,10 @@ def selected_keywords_from(table_keyword):
 
 
 def selected_paths_from(table_path):
-    return [Path(row["path"]) for row in table_path.selected]
+    paths = [Path(row["path"]) for row in table_path.selected]
+    for p in paths:
+        logging.info(str(p))
+    return paths
 
 
 def initialize_gui():

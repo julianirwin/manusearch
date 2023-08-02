@@ -18,7 +18,7 @@ def table_keyword(default_keywords):
     rows = [{"id": i, "keyword": k, "before_pattern": "", "after_pattern": ".*"} for i, k in enumerate(default_keywords)]
 
     def add_keyword():
-        table_keyword.add_rows({"id": time(), "keyword": new_keyword.value})
+        table_keyword.add_rows({"id": time(), "keyword": new_keyword.value, "before_pattern": new_before_pattern.value, "after_pattern": new_after_pattern.value})
         new_keyword.set_value(None).props("flat fab-mini icon=add")
         new_before_pattern.set_value("").props("flat fab-mini icon=add")
         new_after_pattern.set_value("*").props("flat fab-mini icon=add")

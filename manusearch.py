@@ -5,7 +5,6 @@ from nltk.tokenize import wordpunct_tokenize
 from nltk.text import Text, TokenSearcher
 import re
 from pdfminer.high_level import extract_text, extract_pages
-# from IPython.core.display import display, HTML
 
 
 def manusearch_html(pdf_paths, keywords, before_patterns, after_patterns):

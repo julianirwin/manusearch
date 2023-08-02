@@ -66,13 +66,11 @@ def initialize_gui():
     ]
 
     default_paths = []
-    #     Path("./pdfs/man1.pdf").absolute(),
-    #     Path("./pdfs/man2.pdf").absolute(),
-    # ]
 
     ui.label("ManuSearch").tailwind.font_size("5xl").font_weight("bold")
     table_keyword_ = table_keyword(default_keywords=default_keywords)
     table_path_ = table_path(default_paths=default_paths)
-    ui.label("Results").tailwind.font_size("xl").font_weight("bold")
-    results_html = ui.html("").classes("max-w-fit")
+    ui.label("Results").tailwind.font_size("xxxl").font_weight("bold")
+    with ui.expansion('Expand', icon='description').classes('w-full'):
+        results_html = ui.html("").classes("max-w-fit")
     ui.button("Process", on_click=manusearch_callback(results_html, table_keyword_, table_path_)).props("color=green rounded")

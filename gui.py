@@ -1,4 +1,5 @@
 from nicegui import ui
+from nicegui.events import KeyEventArguments
 from time import time
 from pathlib import Path
 import logging
@@ -10,9 +11,14 @@ from manusearch import manusearch_html
 
 logging.basicConfig(level=logging.INFO)
 
+# def handle_key(e: KeyEventArguments):
+#     if e.key == e.key.enter:
+#         if e.action.keydown:
+#             ui.notify('Pressed Enter')
+
 def manusearch_callback(results_html: ui.html, table_keyword, table_path):
     def cb():
-        results_html.set_content("")
+        results_html.set_content("Processing...")
         results_html.update()
         befores, keywords, afters = selected_keywords_from(table_keyword)
         pdf_paths = selected_paths_from(table_path)
@@ -67,6 +73,8 @@ def initialize_gui():
 
     default_paths = []
 
+    # keyboard = ui.keyboard(on_key=handle_key)
+    
     ui.label("ManuSearch").tailwind.font_size("5xl").font_weight("bold")
     table_keyword_ = table_keyword(default_keywords=default_keywords)
     table_path_ = table_path(default_paths=default_paths)

@@ -13,7 +13,7 @@ def table_path(default_paths):
     rows = [{"id": i, "name": str(p.name), "path": str(p)} for i, p in enumerate(default_paths)]
 
     def add_paths():
-        new_paths = askopenfilenames(initialdir=Path(".").absolute())
+        new_paths = askopenfilenames(initialdir=Path("."))
         for new_path in new_paths:
             table_path.add_rows({"id": time(), "name": Path(new_path).name, "path": new_path})
 

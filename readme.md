@@ -40,3 +40,7 @@ Run the `main.py` module:
 You should see a new browser tab open titled "manusearch".
 
 Select all keywords that you want to search for. Use the "+" icon to add one or more manuscripts using the file picker that pops up. You may have to look in the task bar for the file picker if it doesn't pop up in front of the browser. Make sure the paths are selected in the table after you are done picking them in the file picker. Click "Process" to search the pdfs. Use the pulldown icon toggle visibility of the results.
+
+# Configuration
+
+The default keywords and default paths can be edited by modifying `manusearch/default_keywords.txt` and `default_paths.txt` respectively. One string value per line.

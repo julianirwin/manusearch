@@ -1,12 +1,6 @@
 from nicegui import ui
 from time import time
 
-default_keyword_roots = [
-    "author",
-    "code", 
-    "anon",
-]
-
 def table_keyword(default_keywords):
 
     columns = [

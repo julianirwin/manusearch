@@ -83,5 +83,5 @@ def html_matches_contexts_table(keywords_and_contexts, pages, title):
 
 
 def to_html_file(file_path, html_string):
-    with open(file_path, "w") as f:
+    with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_string)

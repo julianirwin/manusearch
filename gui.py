@@ -18,6 +18,7 @@ logging.basicConfig(level=logging.INFO)
 
 def manusearch_callback(results_html: ui.html, table_keyword, table_path):
     def cb():
+        logging.info("Processing...")
         results_html.set_content("Processing...")
         results_html.update()
         befores, keywords, afters = selected_keywords_from(table_keyword)
